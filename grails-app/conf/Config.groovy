@@ -116,3 +116,34 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'util.Login'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'util.LoginPermission'
+grails.plugin.springsecurity.authority.className = 'util.Permission'
+
+grails.plugin.springsecurity.auth.loginFormUrl = "/areaRestrita/logar"
+grails.plugin.springsecurity.logout.afterLogoutUrl = "/areaRestrita/logout"
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = "/areaRestrita/admin"
+grails.plugin.springsecurity.failureHandler.defaultFailureUrl = "/areaRestrita/error"
+grails.plugin.springsecurity.successHandler.alwaysUseDefault = false
+grails.plugin.springsecurity.dao.hideUserNotFoundExceptions = false
+grails.plugin.springsecurity.adh.errorPage = "/j_spring_security_logout"
+grails.plugin.springsecurity.password.algorithm = "SHA-256"
+
+grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
+
+grails.plugin.springsecurity.interceptUrlMap = [
+	'/areaRestrita/**': ['permitAll'],
+	'/layouts/**': ['permitAll'],
+	'/tipoAcervo/**': ['ROLE_ADMIN','ROLE_BIBLIOTECARIO'],
+	'/usuario/**': ['ROLE_ADMIN','ROLE_BIBLIOTECARIO'],
+	'/acervo/**': ['ROLE_ADMIN','ROLE_BIBLIOTECARIO'],
+	'/**':        ['permitAll']
+]
+
+grails.plugin.springsecurity.controllerAnnotarions.staticRules =[
+		'/': ['permitAll'],
+		'/index': ['permitAll']	
+]
