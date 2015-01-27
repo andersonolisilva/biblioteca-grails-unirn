@@ -9,7 +9,7 @@ class Acervo {
 	static hasMany = [emprestimos: Emprestimo]
 	
     static constraints = {
-		titulo blanck:false, nullable:false
+		titulo blank:false, nullable:false
     }
 	static mapping = {
 	}

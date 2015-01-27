@@ -1,5 +1,7 @@
 package biblioteca.grails.unirn
 
+import grails.plugin.springsecurity.SpringSecurityService;
+
 class AreaRestritaController {
 		
 	def index(){
@@ -15,7 +17,8 @@ class AreaRestritaController {
 	}
 	
 	def admin(){
-		render(view:"/areaRestrita/admin")
+		String usuario = SpringSecurityService.principal.username
+		render(view:"/areaRestrita/admin", model: [usuario: usuario])
 	}
 	
 	def logout(){
