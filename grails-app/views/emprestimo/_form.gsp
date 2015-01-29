@@ -7,7 +7,7 @@
 		<g:message code="emprestimo.acervo.label" default="Acervo" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="acervo" name="acervo.id" from="${biblioteca.grails.unirn.Acervo.list()}" optionKey="id" required="" value="${emprestimoInstance?.acervo?.id}" class="form-control"/>
+	<g:select id="acervo" name="acervo.id" from="${biblioteca.grails.unirn.Acervo.list()}" optionKey="id" required="" value="${emprestimoInstance?.acervo?.id}" optionValue="titulo" noSelection="['':'- Escolher Acervo -']" class="form-control"/>
 
 </div>
 
@@ -22,10 +22,10 @@
 
 <div class="form-group ${hasErrors(bean: emprestimoInstance, field: 'usuario', 'has-error')} required">
 	<label for="usuario">
-		<g:message code="emprestimo.usuario.label" default="Usuario" />
+		<g:message code="emprestimo.usuario.label" default="Usu&aacute;rio" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="usuario" name="usuario.id" from="${biblioteca.grails.unirn.Usuario.list()}" optionKey="id" required="" value="${emprestimoInstance?.usuario?.id}" class="form-control"/>
+	<g:select id="usuario" name="usuario.id" from="${biblioteca.grails.unirn.Usuario.list()}" optionKey="id" required="" value="${emprestimoInstance?.usuario?.id}" optionValue="nome" noSelection="['':'- Escolher Usuario -']" class="form-control"/>
 
 </div>
 

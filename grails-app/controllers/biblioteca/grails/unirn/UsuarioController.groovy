@@ -3,17 +3,69 @@ package biblioteca.grails.unirn
 
 
 import static org.springframework.http.HttpStatus.*
+@Transactional(readOnly = true)
 import grails.transaction.Transactional
 
-@Transactional(readOnly = true)
 class UsuarioController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Usuario.list(params), model:[usuarioInstanceCount: Usuario.count()]
+        respond Usuario.listOrderByNome(params, order: "asc"), model:[usuarioInstanceCount: Usuario.count()]
     }
+	
+	def adicionar() {
+		Usuario novoUsuarioInstance = new Usuario()
+		render(template:"/usuario/form", model: [usuarioInstance: novoUsuarioInstance])
+	}
+	
+	def salvar() {
+		Usuario usuarioInstance = null
+		if (params.id)
+		{
+			usuarioInstance = Usuario.get(params.id)
+		}else{
+			usuarioInstance = new Usuario()
+		}
+		usuarioInstance.email = params.email
+		usuarioInstance.nome = params.nome
+		usuarioInstance.senha = params.senha
+		
+		usuarioInstance.validate()
+		if(!usuarioInstance.hasErrors()){
+			usuarioInstance.save(flush:true)
+			render("Salvou!!")
+		}else{
+			render("Ops.. Lascou!")
+		}
+	}
+	
+	def doSearch = {	
+		[usuarioInstanceList: Usuario.findAllByNomeIlike("%${params.nome}%", [order: "asc"])]
+	}
+	
+	def outraBusca = {
+		[usuarioInstanceList: Usuario.findAllByNomeIlike("%${params.nome}%", [order: "asc"])]
+	}
+	
+	def lista() {
+		def lista = Usuario.listOrderByNome(order: "asc")
+		render(template:"/usuario/lista", model:[usuarioInstanceList: lista])
+	}
+	
+	def alterar() {
+		Usuario usuarioInstance = Usuario.get(params.id)
+		render(template:"/usuario/form", model: [usuarioInstance: usuarioInstance])
+	}
+	
+	def excluir() {
+		Usuario usuarioInstance = Usuario.get(params.id)
+		usuarioInstance.delete(flush:true)
+		
+		def lista = Usuario.listOrderByNome(order: "asc")
+		render(template:"/usuario/lista", model:[usuarioInstanceList: lista])
+	}
 
     def show(Usuario usuarioInstance) {
         respond usuarioInstance

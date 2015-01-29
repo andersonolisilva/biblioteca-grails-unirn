@@ -27,8 +27,11 @@
 					<i class="fa fa-plus-circle fa-fw"></i>Criar TipoAcervo
 				</div>
 				<div class="panel-body">
-				Descricao: <input type="text" name="descricao"
-					value="${tipoAcervoInstance.descricao}" /> <input type="submit"
+				<label for="descricao"> <g:message
+							code="tipoAcervo.descricao.label" default="Descri&ccedil;&atilde;o" /> <span
+						class="required-indicator">*</span>
+					</label> <input type="text" name="descricao"
+					value="${tipoAcervoInstance.descricao}" class="form-control" /> <br /> <input type="submit"
 					name="btnSalvar" value="Salvar" class="btn btn-default" /> <input type="button"
 					name="btnCancelar" value="Cancelar" onclick="cancelar()" class="btn btn-default" /> <input
 					type="hidden" name="id" value="${tipoAcervoInstance.id}" />

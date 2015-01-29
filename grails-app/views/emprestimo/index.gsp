@@ -50,11 +50,11 @@
 								<g:each in="${emprestimoInstanceList}" status="i" var="emprestimoInstance">
 									<tr>
 									
-										<td><g:link action="show" resource="${emprestimoInstance}">${fieldValue(bean: emprestimoInstance, field: "acervo")}</g:link></td>
+										<td><g:link action="show" resource="${emprestimoInstance}">${fieldValue(bean: emprestimoInstance, field: "acervo.titulo")}</g:link></td>
 									
-										<td><g:formatDate date="${emprestimoInstance.dataEmprestimo}" /></td>
+										<td><g:formatDate format="dd/MM/yyyy" date="${emprestimoInstance.dataEmprestimo}" /></td>
 									
-										<td>${fieldValue(bean: emprestimoInstance, field: "usuario")}</td>
+										<td>${fieldValue(bean: emprestimoInstance, field: "usuario.nome")}</td>
 									
 										<td>
 											<g:link class="btn btn-default" action="edit" resource="${emprestimoInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>

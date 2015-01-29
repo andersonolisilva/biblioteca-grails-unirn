@@ -1,8 +1,8 @@
-<g:if test="${tipoAcervoInstanceList.size() > 0}">
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>Descricao</th>
+			<g:sortableColumn property="descricao"
+									title="${message(code: 'tipoAcervo.descricao.label', default: 'Descri&ccedil;&atilde;o')}" />
 			<th>&nbsp;</th>
 			<th>&nbsp;</th>
 		</tr>
@@ -10,9 +10,9 @@
 	<tbody>
 		<g:each var="tipoAcervoInstance" in="${tipoAcervoInstanceList}">
 		<tr>
-			<td>${tipoAcervoInstance.descricao}</td>
-			<td><g:remoteLink controller="tipoAcervo" action="alterar" update="divForm" id="${tipoAcervoInstance.id}">Alterar</g:remoteLink></td>
-			<td><a href="#" onclick="excluir('${tipoAcervoInstance.id}')">Excluir</a></td>
+			<td>${tipoAcervoInstance?.descricao}</td>
+			<td><g:remoteLink class="btn btn-default" controller="tipoAcervo" action="alterar" update="divForm" id="${tipoAcervoInstance.id}">Editar</g:remoteLink></td>
+			<td><a href="#" class="btn btn-danger" onclick="excluir('${tipoAcervoInstance.id}')">Remover</a></td>
 		</tr>
 		</g:each>
 	</tbody>
@@ -56,8 +56,4 @@
 		</g:each>
 	</tbody>
 --%></table>
-</g:if>
-<g:else>
-	Não há
-</g:else>
 <g:paginate total="${tipoAcervoInstanceCount ?: 0}" />

@@ -21,6 +21,7 @@
 		jQuery("#divForm").html("")
 	}
 </script>
+<g:javascript library="prototype" />
 </head>
 <body>
 	<div class="row">
@@ -59,9 +60,17 @@
 					<i class="fa fa-search fa-fw"></i>Buscar TipoAcervo
 				</div>
 				<div class="panel-body">
-					Descricao: <input type="text" name="descricao"
-						value="${}" /> <input type="submit"
-						name="btnBuscar" value="Buscar" class="btn btn-default" />
+					<g:formRemote name="frmBuscarTipoAcervo"
+						url="[controller:'tipoAcervo', action:'doSearch']"
+						update="divLista">
+					<label for="descricao"> <g:message
+							code="tipoAcervo.descricao.label" default="Descri&ccedil;&atilde;o" /> <span
+						class="required-indicator">*</span>
+					</label> <input type="text" name="descricao"
+							value="${tipoAcervo?.descricao}" class="form-control" /> <br />
+						<input type="submit" name="btnBuscar" value="Buscar"
+							class="btn btn-default" />
+					</g:formRemote>
 				</div>
 			</div>
 		</div>

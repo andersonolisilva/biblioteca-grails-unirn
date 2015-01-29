@@ -3,6 +3,9 @@ package biblioteca.grails.unirn
 
 
 import static org.springframework.http.HttpStatus.*
+
+import javax.swing.text.View;
+
 import grails.converters.JSON
 import grails.transaction.Transactional
 
@@ -12,7 +15,7 @@ class TipoAcervoController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond TipoAcervo.list(params), model:[tipoAcervoInstanceCount: TipoAcervo.count()]
+        respond TipoAcervo.listOrderByDescricao(params, order: "asc"), model:[tipoAcervoInstanceCount: TipoAcervo.count()]
     }
 	
 	/*def index() {
@@ -44,18 +47,12 @@ class TipoAcervoController {
 		}
 	}
 	
-	def search() {}
-	
-	def doSearch() {
-		return[tipoAcervoInstanceList: tipoAcervoInstanceList.findAllByNomeLike("%"+params.descricao+"%")]
-	}
-	
-	def listar(String descricao){
-		render tipoAcervoService.buscarDadosPorDescricao(descricao) as JSON
+	def doSearch = {
+		[tipoAcervoInstanceList: TipoAcervo.findAllByDescricaoIlike("%${params.descricao}%", [order: "asc"])]
 	}
 	
 	def lista() {
-		def lista = TipoAcervo.list()
+		def lista = TipoAcervo.listOrderByDescricao(order: "asc")
 		render(template:"/tipoAcervo/lista", model:[tipoAcervoInstanceList: lista])
 	}
 	
@@ -68,7 +65,7 @@ class TipoAcervoController {
 		TipoAcervo tipoAcervoInstance = TipoAcervo.get(params.id)
 		tipoAcervoInstance.delete(flush:true)
 		
-		def lista = TipoAcervo.list()
+		def lista = TipoAcervo.listOrderByDescricao(order: "asc")
 		render(template:"/tipoAcervo/lista", model:[tipoAcervoInstanceList: lista])
 	}
 

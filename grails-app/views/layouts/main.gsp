@@ -53,15 +53,18 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
+                        <g:form name="frmBuscarTipoAcervo" controller="usuario" action="outraBusca">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Buscar Acervo...">
+                                <input type="text" name="nome" class="form-control" placeholder="Buscar Usuario..." value="${tipoAcervo?.descricao}">
                                 <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
+                                <button class="btn btn-default" name="btnBuscar" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </span>
                             </div>
+                            </g:form>
                             <!-- /input-group -->
+
                         </li>
                         <li>
                             <a class="active" href="${g.createLink(uri:'/')}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="layout" content="main" />
 <title>Área restrita - Biblioteca Grails - UniRN</title>
 <style type="text/css">
 	.negrito {font-weight: bold; font-size: 16px;}
 	table tr td {line-height: 30px;}
-	input[type=text],input[type=password] {padding: 0 6px; border: 1px solid #CCC; background: transparent; border-radius: 5px; box-shadow: 2px 2px 2px #CCC}
+	table tr td input[type=text],input[type=password] {padding: 0 6px; border: 1px solid #CCC; background: transparent; border-radius: 5px; box-shadow: 2px 2px 2px #CCC}
 </style>
 </head>
 <body>
@@ -24,7 +25,7 @@
 			<div class="col-lg-12">
 				<table>
 					<tr>
-						<td width="100" height="50" class="negrito">Usu&aacute;rio: 
+						<td width="100" height="50" class="negrito">Usuário: 
 						</td>
 						<td>
 							<input type="text" name="j_username"
