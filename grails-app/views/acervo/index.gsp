@@ -33,7 +33,7 @@
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<i class="fa fa-list-alt fa-fw"></i>
-					<g:message code="default.list.label" args="[entityName]" />
+					Listagem de Acervo
 					<div class="pull-right">
 						<g:link class="btn btn-default btn-xs" action="create">
 							<g:message code="default.new.label" args="[entityName]" />

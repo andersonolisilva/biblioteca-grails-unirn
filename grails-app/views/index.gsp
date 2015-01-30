@@ -22,6 +22,19 @@
 			<p>- Anderson Oliveira<br />
 			- Daniel Olinto<br />
 			- Plecyo Nahay</p>
+			<br />
+			<p>
+				- Os usu&aacute;rios que podem fazer login est&atilde;o em Conf -> BootStrap.groovy
+			</p>
+			<br />
+			<p>
+				- As 2 buscas com AJAX est&atilde;o apenas em Usu&aacute;rios e TipoAcervo.
+			</p>
+			<br />
+			<p>
+				- Nos menus Dashboard e Emprestimo n&atilde;o &eacute; necess&aacute;rio est&aacute; logado<br />
+				- Nos demais &eacute; necess&aacute;rio est&aacute;  
+			</p>
 		</div>
 		<!-- /.col-lg-12 -->
 	</div>

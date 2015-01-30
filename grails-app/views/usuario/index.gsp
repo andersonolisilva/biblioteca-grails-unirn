@@ -79,7 +79,7 @@
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<i class="fa fa-list-alt fa-fw"></i>
-					<g:message code="default.list.label" args="[entityName]" />
+					Listagem de Usu&aacute;rio
 					<div class="pull-right">
 						<g:remoteLink class="btn btn-default btn-xs"
 							controller="usuario" action="adicionar" update="divForm">

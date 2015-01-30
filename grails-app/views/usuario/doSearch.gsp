@@ -16,8 +16,8 @@
 		<tr>
 			<td>${usuarioInstance?.nome}</td>
 			<td>${usuarioInstance?.email}</td>
-			<td><g:remoteLink class="btn btn-default" controller="usuario" action="alterar" update="divForm" id="${usuarioInstance.id}">Alterar</g:remoteLink></td>
-			<td><a href="#" class="btn btn-danger" onclick="excluir('${usuarioInstance.id}')">Excluir</a></td>
+			<td><g:remoteLink class="btn btn-default" controller="usuario" action="alterar" update="divForm" id="${usuarioInstance.id}">Editar</g:remoteLink></td>
+			<td><a href="#" class="btn btn-danger" onclick="excluir('${usuarioInstance.id}')">Remover</a></td>
 		</tr>
 		</g:each>
 	</tbody>

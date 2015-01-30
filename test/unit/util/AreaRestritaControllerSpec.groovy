@@ -1,4 +1,4 @@
-package biblioteca.grails.unirn
+package util
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification

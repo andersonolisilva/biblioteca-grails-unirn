@@ -32,24 +32,24 @@
 							code="usuario.email.label" default="E-mail" /> <span
 						class="required-indicator">*</span>
 					</label> <input type="text" name="email"
-					value="${usuario?.email}" class="form-control" /> <br />
+					value="${usuarioInstance.email}" class="form-control" /> <br />
 					
 				<label for="nome"> <g:message
 							code="usuario.nome.label" default="Nome" /> <span
 						class="required-indicator">*</span>
 					</label> <input type="text" name="nome"
-					value="${usuario?.nome}" class="form-control" /> <br />
+					value="${usuarioInstance.nome}" class="form-control" /> <br />
 					
 				<label for="senha"> <g:message
 							code="usuario.senha.label" default="Senha" /> <span
 						class="required-indicator">*</span>
 					</label> <input type="text" name="senha"
-					value="${usuario?.senha}" class="form-control" /> <br />
+					value="${usuarioInstance.senha}" class="form-control" /> <br />
 					
 					 <input type="submit"
 					name="btnSalvar" value="Salvar" class="btn btn-default" /> <input type="button"
 					name="btnCancelar" value="Cancelar" onclick="cancelar()" class="btn btn-default" /> <input
-					type="hidden" name="id" value="${usuario?.id}" />
+					type="hidden" name="id" value="${usuarioInstance.id}" />
 					<div id="divMensagem" style="color:red"></div>
 				</div>
 			</div>

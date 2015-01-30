@@ -13,8 +13,8 @@
 					${tipoAcervoInstance?.descricao}
 				</td>
 				<td><g:remoteLink class="btn btn-default" controller="tipoAcervo" action="alterar"
-						update="divForm" id="${tipoAcervoInstance.id}">Alterar</g:remoteLink></td>
-				<td><a href="#" class="btn btn-danger" onclick="excluir('${tipoAcervoInstance.id}')">Excluir</a></td>
+						update="divForm" id="${tipoAcervoInstance.id}">Editar</g:remoteLink></td>
+				<td><a href="#" class="btn btn-danger" onclick="excluir('${tipoAcervoInstance.id}')">Remover</a></td>
 			</tr>
 		</g:each>
 	</tbody>

@@ -66,7 +66,7 @@
 					<label for="descricao"> <g:message
 							code="tipoAcervo.descricao.label" default="Descri&ccedil;&atilde;o" /> <span
 						class="required-indicator">*</span>
-					</label> <input type="text" name="descricao"
+					</label> <input type="text" name="descricao" placeholder="Buscar Tipo Acervo..."
 							value="${tipoAcervo?.descricao}" class="form-control" /> <br />
 						<input type="submit" name="btnBuscar" value="Buscar"
 							class="btn btn-default" />
